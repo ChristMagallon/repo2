@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ConsoleApp1
 {
@@ -6,78 +6,67 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-
-            mainmenu mm = new mainmenu();
-            mm.main();
+            MainMenu NewMainMenu = new MainMenu();
+            NewMainMenu.main();
         }
     }
 
-
-
-
-    class mainmenu
-    {
-        System sm = new System();
-        account naccount = new account();
-        showall nshowall = new showall();
+    class MainMenu
+    {    
+        Account newAccount = new Account();
+        Showall newShowall = new Showall();
         bool choice = true;
-        int userinput = 9;
+        int userinput;
         public void main()
         {
-
             do
             {
                 Console.WriteLine("\n\nType 1 to create account");
                 Console.WriteLine("type 2 to show all account");
                 Console.WriteLine("type 0 to terminate console \n\ninput:");
                 userinput = Convert.ToInt32(Console.ReadLine());
-                if (userinput == 1)
+               switch(userinput)
                 {
-                    naccount.newaccount();
-
-                }
-                else if (userinput == 2)
-                {
-                    nshowall.show();
-                }
-                else if (userinput == 0)
-                {
-                    choice = false;
+                    case 1:
+                        newAccount.newaccount();
+                        break;
+                    case 2:
+                        newShowall.show();
+                        break;
+                    case 0:
+                        choice = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Input");
+                        break;  
                 }
             }
             while (choice != false);
             {
                 Console.Write("terminated");
             }
-
         }
-
     }
-    class showall
+    class Showall
     {
-        System sm = new System();
+        Server NewServerRoom = new Server();
         public void show()
         {
-            for (int x = 0; x < sm.checker; x++)
+            for (int x = 0; x < NewServerRoom.checker; x++)
             {
-                Console.WriteLine(sm.name[x]);
-                Console.WriteLine(sm.middleinitial[x]);
-                Console.WriteLine(sm.yearlevel[x]);
-                Console.WriteLine(sm.course[x]);
+                Console.WriteLine(NewServerRoom.name[x]);
+                Console.WriteLine(NewServerRoom.middleinitial[x]);
+                Console.WriteLine(NewServerRoom.yearlevel[x]);
+                Console.WriteLine(NewServerRoom.course[x]);
             }
-
         }
-
     }
 
-    class account
+    class Account
     {
-        System sm = new System();
-
+        Server NewServer = new Server();
         public void newaccount()
         {
-
-
             Console.WriteLine("\n\nname:");
             string name = Console.ReadLine();
             Console.WriteLine("middle initial:");
@@ -87,17 +76,15 @@ namespace ConsoleApp1
             Console.WriteLine("course:");
             string course = Console.ReadLine();
 
-            sm.setname(name);
-            sm.setmiddleinitial(minitial);
-            sm.setyearlevel(yl);
-            sm.setcourse(course);
-            sm.checkerplusone();
-
-
+            NewServer.setname(name);
+            NewServer.setmiddleinitial(minitial);
+            NewServer.setyearlevel(yl);
+            NewServer.setcourse(course);
+            NewServer.checkerplusone();
         }
     }
 
-    class System
+    class Server
     {
         static int limit = 50;
         public int checker = 0;
@@ -106,16 +93,13 @@ namespace ConsoleApp1
         public int[] yearlevel = new int[limit];
         public string[] course = new string[limit];
 
-
         public void setname(string name)
         {
             this.name[checker] = name;
-
         }
         public void setmiddleinitial(char middleinitial)
         {
-            this.middleinitial[checker] = middleinitial;
-            ;
+            this.middleinitial[checker] = middleinitial;     
         }
         public void setyearlevel(int yearlevel)
         {
@@ -154,5 +138,4 @@ namespace ConsoleApp1
             checker++;
         }
     }
-
 }
