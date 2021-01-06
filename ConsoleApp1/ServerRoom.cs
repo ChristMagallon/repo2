@@ -34,18 +34,17 @@ namespace ConsoleApp1
                 Console.WriteLine("course:");
                 string course = Console.ReadLine();
 
-                newServer.setname(name);
-                newServer.setmiddleinitial(minitial);
-                newServer.setyearlevel(yl);
-                newServer.setcourse(course);
-                newServer.checkerplusone();
-            }
+                newStudent.Name = name;
+                newStudent.MiddleInitial = minitial;
+                newStudent.YearLevel = yl;
+                newStudent.Course = course;
+        }
         }
 
     public class Student
     { 
         public string Name { get; set; }
-        public string MiddleInitial{ get; set;}
+        public char MiddleInitial{ get; set;}
         public int YearLevel{ get; set;} 
         public string Course { get; set; }
     }
