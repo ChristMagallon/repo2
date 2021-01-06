@@ -22,7 +22,7 @@ namespace ConsoleApp1
 
         public class Account
         {
-            Server newServer = new Server();
+            Student newStudent = new Student();
             public void newaccount()
             {
                 Console.WriteLine("\n\nname:");
