@@ -5,24 +5,24 @@ using System.Text;
 namespace ConsoleApp1
 {
    
-        class Showall
+        public class Showall
         {
-            Server NewServer = new Server();
+            Server newServer = new Server();
             public void show()
             {
-                for (int x = 0; x < NewServer.checker; x++)
+                for (int x = 0; x < newServer.checker; x++)
                 {
-                    Console.WriteLine(NewServer.name[x]);
-                    Console.WriteLine(NewServer.middleinitial[x]);
-                    Console.WriteLine(NewServer.yearlevel[x]);
-                    Console.WriteLine(NewServer.course[x]);
+                    Console.WriteLine(newServer.name[x]);
+                    Console.WriteLine(newServer.middleinitial[x]);
+                    Console.WriteLine(newServer.yearlevel[x]);
+                    Console.WriteLine(newServer.course[x]);
                 }
             }
         }
 
         public class Account
         {
-            Server NewServer = new Server();
+            Server newServer = new Server();
             public void newaccount()
             {
                 Console.WriteLine("\n\nname:");
@@ -34,15 +34,23 @@ namespace ConsoleApp1
                 Console.WriteLine("course:");
                 string course = Console.ReadLine();
 
-                NewServer.setname(name);
-                NewServer.setmiddleinitial(minitial);
-                NewServer.setyearlevel(yl);
-                NewServer.setcourse(course);
-                NewServer.checkerplusone();
+                newServer.setname(name);
+                newServer.setmiddleinitial(minitial);
+                newServer.setyearlevel(yl);
+                newServer.setcourse(course);
+                newServer.checkerplusone();
             }
         }
 
-        class Server
+    public class Student
+    { 
+        public string Name { get; set; }
+        public string MiddleInitial{ get; set;}
+        public int YearLevel{ get; set;} 
+        public string Course { get; set; }
+    }
+
+    class Server
         {
             static int limit = 50;
             public int checker = 0;
@@ -95,7 +103,6 @@ namespace ConsoleApp1
             {
                 checker++;
             }
-
         }
     }
 

@@ -13,8 +13,8 @@ namespace ConsoleApp1
 
     class MainMenu
     {
-        Showall NewShowAll = new Showall();
-        Account NewAccount = new Account();
+        Showall newShowAll = new Showall();
+        Account newAccount = new Account();
         bool choice = true;
         int userinput;
         public void main()
@@ -28,10 +28,10 @@ namespace ConsoleApp1
                switch(userinput)
                 {
                     case 1:
-                        NewAccount.newaccount();
+                        newAccount.newaccount();
                         break;
                     case 2:
-                        NewShowAll.show();
+                        newShowAll.show();
                         break;
                     case 0:
                         choice = false;
