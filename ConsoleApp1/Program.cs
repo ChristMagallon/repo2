@@ -21,9 +21,6 @@ namespace ConsoleApp1
         {
             do
             {
-                Console.WriteLine("Testttinggggg 123");
-                Console.WriteLine("Testttinggggg 123");
-                Console.WriteLine("Testttinggggg 123");
                 Console.WriteLine("\n\nType 1 to create account");
                 Console.WriteLine("type 2 to show all account");
                 Console.WriteLine("type 0 to terminate console \n\ninput:");
