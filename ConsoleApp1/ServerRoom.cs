@@ -7,16 +7,16 @@ namespace ConsoleApp1
    
         public class Showall
         {
-            Server newServer = new Server();
-            public void show()
+                    Student newStudent = new Student();
+        public void show()
             {
-                for (int x = 0; x < newServer.checker; x++)
+                for (int x = 0; x < 5; x++)
                 {
-                    Console.WriteLine(newServer.name[x]);
-                    Console.WriteLine(newServer.middleinitial[x]);
-                    Console.WriteLine(newServer.yearlevel[x]);
-                    Console.WriteLine(newServer.course[x]);
-                }
+                    Console.WriteLine(newStudent.Name);
+                    Console.WriteLine(newStudent.MiddleInitial);
+                    Console.WriteLine(newStudent.YearLevel);
+                    Console.WriteLine(newStudent.Course);
+            }
             }
         }
 
@@ -25,6 +25,7 @@ namespace ConsoleApp1
             Student newStudent = new Student();
             public void newaccount()
             {
+                var studentsList = new List<Student>();
                 Console.WriteLine("\n\nname:");
                 string name = Console.ReadLine();
                 Console.WriteLine("middle initial:");
@@ -38,11 +39,14 @@ namespace ConsoleApp1
                 newStudent.MiddleInitial = minitial;
                 newStudent.YearLevel = yl;
                 newStudent.Course = course;
-        }
+                studentsList.Add(newStudent);
+            }
         }
 
     public class Student
-    { 
+    {
+        
+
         public string Name { get; set; }
         public char MiddleInitial{ get; set;}
         public int YearLevel{ get; set;} 
