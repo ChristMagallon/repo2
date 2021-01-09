@@ -6,39 +6,34 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            MainMenu NewMainMenu = new MainMenu();
-            NewMainMenu.main();
+            mainMenu();
         }
-    }
 
-    class MainMenu
-    {
-        Showall newShowAll = new Showall();
-        Account newAccount = new Account();
-        bool choice = true;
-        int userinput;
-        public void main()
+        static void mainMenu()
         {
+            bool choice = true;
+            int userinput;
+
             do
             {
                 Console.WriteLine("\n\nType 1 to create account");
                 Console.WriteLine("type 2 to show all account");
                 Console.WriteLine("type 0 to terminate console \n\ninput:");
                 userinput = Convert.ToInt32(Console.ReadLine());
-               switch(userinput)
+                switch (userinput)
                 {
                     case 1:
-                        newAccount.newaccount();
+                        NewAccount();
                         break;
                     case 2:
-                        newShowAll.show();
+                        Showall();
                         break;
                     case 0:
                         choice = false;
                         break;
                     default:
                         Console.WriteLine("Invalid Input");
-                        break;  
+                        break;
                 }
             }
             while (choice != false);
@@ -46,6 +41,42 @@ namespace ConsoleApp1
                 Console.Write("terminated");
             }
         }
+
+
+        static void NewAccount()
+        {
+            Server newServer = new Server();
+
+            Console.WriteLine("\n\nname:");
+            string name = Console.ReadLine();
+            Console.WriteLine("middle initial:");
+            char minitial = Convert.ToChar(Console.ReadLine());
+            Console.WriteLine("year level:");
+            int yl = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("course:");
+            string course = Console.ReadLine();
+
+            newServer.setname(name);
+            newServer.setmiddleinitial(minitial);
+            newServer.setyearlevel(yl);
+            newServer.setcourse(course);
+            newServer.checkerplusone();
+        }
+        static void Showall()
+        {
+            for (int x = 0; x < Server.checker; x++)
+            {
+                Console.WriteLine("\n\n############");
+                Console.WriteLine("name: " + Server.name[x]);
+                Console.WriteLine("name: " + Server.middleinitial[x]);
+                Console.WriteLine("name: " + Server.yearlevel[x]);
+                Console.WriteLine("name: " + Server.course[x]);
+            }
+        }
     }
 }
+
+
+
+
 
